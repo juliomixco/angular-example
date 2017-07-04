@@ -6,11 +6,15 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FormsModule } from "@angular/forms";
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroService } from "app/hero.service";
+import { HeroService } from "app/service/hero.service";
 import { HeroComponent } from './hero/hero.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from "app/app-routing.module";
-// import { ProductListComponent } from './product-list/product-list.component';
+import { HttpModule } from "@angular/http";
+
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './service/in-memory-data.service';
 
 
 
@@ -27,7 +31,9 @@ import { AppRoutingModule } from "app/app-routing.module";
     BrowserModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 }),
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]
