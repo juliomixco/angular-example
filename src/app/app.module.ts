@@ -15,6 +15,7 @@ import { HttpModule } from "@angular/http";
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 
 
@@ -24,6 +25,7 @@ import { InMemoryDataService } from './service/in-memory-data.service';
     HeroDetailComponent,
     HeroComponent,
     DashboardComponent,
+    HeroSearchComponent,
     // ProductListComponent
   ],
   imports: [
