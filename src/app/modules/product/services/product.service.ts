@@ -7,7 +7,7 @@ import { Product } from "app/modules/product/models";
 
 @Injectable()
 export class ProductService {
-  apiUrl = 'https://elvis-tek-mix.herokuapp.com/api/product';
+  apiUrl = '/api/product';
 
   constructor(private http: Http) {
 

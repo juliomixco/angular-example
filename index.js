@@ -41,5 +41,10 @@ appmodules.auth(passport);
 
 app.use('/api', appmodules.router);
 
+app.all('*', (req, res) => {
+  // console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);
+  res.status(200).sendFile(__dirname + '/dist/index.html');
+});
+
 
 app.listen(app.get('port'), console.log('person service running on port ', app.get('port')));
