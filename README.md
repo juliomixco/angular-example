@@ -9,6 +9,11 @@ this project contains multiple POC using angular 4 and Express
 - Use of Services
 - REST API (Express) + Angular Cli in a single project (build changes every time)
 
+## TODO
+- Angular Material
+- Product CRUD UI
+- Log in UI
+
 ## Run this project.
 to run this project you will need:
  - [Angular CLI](https://github.com/angular/angular-cli)
