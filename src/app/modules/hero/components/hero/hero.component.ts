@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { Hero } from "app/modules/core/models/hero";
 import { HeroService } from '../../services';
 
@@ -12,7 +12,7 @@ export class HeroComponent implements OnInit {
   heroes: Hero[];
 
   selectedHero: Hero;
-  constructor(private router: Router, private heroService: HeroService) { }
+  constructor(private router: Router, private activeRoute: ActivatedRoute, private heroService: HeroService) { }
   ngOnInit(): void {
     this.getHeroes();
   }
@@ -26,7 +26,7 @@ export class HeroComponent implements OnInit {
     this.selectedHero = hero;
   }
   gotoDetail(): void {
-    this.router.navigate(['../detail', this.selectedHero.id]);
+    this.router.navigate(['../detail', this.selectedHero.id], { relativeTo: this.activeRoute });
   }
   add(name: String) {
     name = name.trim();
