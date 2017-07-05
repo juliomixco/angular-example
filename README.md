@@ -1,4 +1,35 @@
-# Lunch
+# Angular Examples
+
+this project contains multiple POC using angular 4 and Express
+[Demo](https://angular-examples.herokuapp.com/hero/dashboard)
+
+## Run this project.
+to run this project you will need:
+ * [Angular CLI](https://github.com/angular/angular-cli)
+ * [Nodemon](https://nodemon.io/)
+
+## Run on cli 
+first build angular and then start the node server
+``` 
+ng build
+npm start
+```
+## Nodemon
+
+If you want to run it using Nodemon:
+
+First you should have installed Nodemon
+```npm i -g nodemon ```
+
+Under the project folder execute the following  command
+``` nodemon```
+
+nodemon settings are in `nodemon.json` in the root of this project
+
+
+<details>
+<summary>Angular CLI Info</summary>
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
@@ -26,3 +57,4 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+</details>
