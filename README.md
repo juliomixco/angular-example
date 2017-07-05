@@ -8,6 +8,7 @@ this project contains multiple POC using angular 4 and Express
 - Use of Observables
 - Use of Services
 - REST API (Express) + Angular Cli in a single project (build changes every time)
+- Angular routing + Express 
 
 ## TODO
 - Angular Material
