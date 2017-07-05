@@ -2,6 +2,12 @@
 
 this project contains multiple POC using angular 4 and Express
 [Demo](https://angular-examples.herokuapp.com/hero/dashboard)
+## Features
+* Modular approach
+* Lazy loaded modules / code splittings
+* Use of Observables
+* Use of Services
+* REST API (Express) + Angular Cli in a single project (build changes every time)
 
 ## Run this project.
 to run this project you will need:
