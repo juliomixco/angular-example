@@ -8,13 +8,13 @@ to run this project you will need:
  * [Angular CLI](https://github.com/angular/angular-cli)
  * [Nodemon](https://nodemon.io/)
 
-## Run on cli 
+### Run on cli 
 first build angular and then start the node server
 ``` 
 ng build
 npm start
 ```
-## Nodemon
+### Nodemon
 
 If you want to run it using Nodemon:
 
