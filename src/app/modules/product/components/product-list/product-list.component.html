@@ -2,14 +2,29 @@
   <!--<img src="http://clipart-library.com/data_images/250409.jpg" width="200" alt="Elvis Store" />
         <br />-->
 
-  <h2>Elvis products</h2>
+  <h2> products</h2>
   <br />
 </div>
-<ul>
-  <li *ngFor="let product of products">
-    {{product}}
-  </li>
-</ul>
+<div class="col-md-offset-3 col-md-6">
+  <div class="form-group form-inline">
+    <label for="search-box">Product filter</label>
+    <input #searchBox id="search-box" class="form-control"  (keyup)="search(searchBox.value)" placeholder="Type something! " />
+  </div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr class="info">
+        <th>Name</th>
+        <th> Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products | async">
+        <td>{{p.name}}</td>
+        <td>{{p.cost | currency:"USD":true}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <!--<div class="col-md-offset-3 col-md-6" >
 
     <div class="form-group form-inline">

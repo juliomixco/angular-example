@@ -11,10 +11,10 @@ h2, h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
-body {
+/*body {
   margin: 2em;
-}
-body, input[text], button {
+}*/
+input[text], button {
   color: #888;
   font-family: Cambria, Georgia;
 }

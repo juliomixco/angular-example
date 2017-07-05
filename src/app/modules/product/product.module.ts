@@ -4,6 +4,7 @@ import { HttpModule } from "@angular/http";
 import { ProductRoutingModule } from "./product-routing.module";
 import { ProductListComponent } from "./components";
 import { FormsModule } from "@angular/forms";
+import { ProductService } from "app/modules/product/services/product.service";
 
 
 
@@ -22,6 +23,6 @@ const components = [
     ProductRoutingModule,
   ],
   // exports: [...components],
-  providers: []
+  providers: [ProductService]
 })
 export class ProductModule { }
