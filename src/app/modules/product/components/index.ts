@@ -1,0 +1,1 @@
+export { ProductListComponent } from './product-list/product-list.component';
