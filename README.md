@@ -26,7 +26,27 @@ Under the project folder execute the following  command
 
 nodemon settings are in `nodemon.json` in the root of this project
 
+## Environment Config
+if `NODE_ENV=development` edit the config file on `app/config/development.json`
+```
+{
+  "dbURI": "", //mongo db URL
+  "host": "http://localhost:3000",
+  "sessionSecret": "" //secretKey
 
+}
+```
+if `NODE_ENV=production` you must set
+* `process.env.host`
+* `process.env.dbURI`
+* `process.env.sessionSecret`
+
+
+- s
+- s
+- s
+
+# Angular CLI Info
 <details>
 <summary>Angular CLI Info</summary>
 
