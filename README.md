@@ -3,16 +3,16 @@
 this project contains multiple POC using angular 4 and Express
 [Demo](https://angular-examples.herokuapp.com/hero/dashboard)
 ## Features
-* Modular approach
-* Lazy loaded modules / code splittings
-* Use of Observables
-* Use of Services
-* REST API (Express) + Angular Cli in a single project (build changes every time)
+- Modular approach
+- Lazy loaded modules / code splittings
+- Use of Observables
+- Use of Services
+- REST API (Express) + Angular Cli in a single project (build changes every time)
 
 ## Run this project.
 to run this project you will need:
- * [Angular CLI](https://github.com/angular/angular-cli)
- * [Nodemon](https://nodemon.io/)
+ - [Angular CLI](https://github.com/angular/angular-cli)
+ - [Nodemon](https://nodemon.io/)
 
 ### Run on cli 
 first build angular and then start the node server
@@ -43,9 +43,9 @@ if `NODE_ENV=development` edit the config file on `app/config/development.json`
 }
 ```
 if `NODE_ENV=production` you must set
-* `process.env.host`
-* `process.env.dbURI`
-* `process.env.sessionSecret`
+- `process.env.host`
+- `process.env.dbURI`
+- `process.env.sessionSecret`
 
 
 - s
