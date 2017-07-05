@@ -24,6 +24,13 @@ export class ProductService {
       .catch(this.handleError);
   }
 
+  getProduct(id: String): Promise<Product> {
+    return this.http.get(`${this.apiUrl}/${id}`)
+      .toPromise()
+      .then(response => response.json() as Product)
+      .catch(this.handleError);
+  }
+
   search(term: string): Observable<Product[]> {
     var url = this.apiUrl;
     if (term.trim()) {
