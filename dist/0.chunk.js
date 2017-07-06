@@ -123,7 +123,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '/product', redirectTo: '/product/product-list', pathMatch: 'full' },
+    { path: '', redirectTo: '/product/product-list', pathMatch: 'full' },
     { path: 'product-list', component: __WEBPACK_IMPORTED_MODULE_2_app_modules_product_components__["a" /* ProductListComponent */] }
 ];
 var ProductRoutingModule = (function () {
