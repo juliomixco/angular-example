@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { metaData } from '../../hero.meta.spec';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -7,10 +8,8 @@ describe('DashboardComponent', () => {
   let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
-    })
-    .compileComponents();
+    TestBed.configureTestingModule(metaData)
+      .compileComponents();
   }));
 
   beforeEach(() => {

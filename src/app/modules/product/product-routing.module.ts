@@ -4,7 +4,7 @@ import { ProductListComponent } from "app/modules/product/components";
 
 
 const routes: Routes = [
-  { path: '/product', redirectTo: '/product/product-list', pathMatch: 'full' },
+  { path: '', redirectTo: '/product/product-list', pathMatch: 'full' },
   { path: 'product-list', component: ProductListComponent }
 ];
 

@@ -1,15 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeroDetailComponent } from './hero-detail.component';
+import { metaData } from "app/modules/hero/hero.meta.spec";
 
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
   let fixture: ComponentFixture<HeroDetailComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HeroDetailComponent ]
-    })
+    TestBed.configureTestingModule(metaData)
     .compileComponents();
   }));
 
