@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/hero/dashboard', pathMatch: 'full' },
   { path: 'hero',  loadChildren: 'app/modules/hero/hero.module#HeroModule'  },
   { path: 'product',  loadChildren: 'app/modules/product/product.module#ProductModule'  },
+  { path: 'starwars',  loadChildren: 'app/modules/starwars/starwars.module#StarwarsModule'  },
   // { path: 'detail/:id', component: HeroDetailComponent },
   // { path: 'heroes',     component: HeroComponent }
 ];

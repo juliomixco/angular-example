@@ -1,6 +1,6 @@
 export class Product {
-  _id: String;
-  name: String;
+  _id: string;
+  name: string;
   cost: Number = 0.0;
   active: Boolean;
   inStock: Number = 0;

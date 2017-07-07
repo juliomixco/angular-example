@@ -1,5 +1,5 @@
 export class StoreApiEndpoints {
-  baseUrl: String = "/api";
+  baseUrl: string = "/api";
 
   products() {
     return `${this.baseUrl}/product`;

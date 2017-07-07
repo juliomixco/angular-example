@@ -25,7 +25,7 @@ export class ProductService {
       .catch(this.handleError);
   }
 
-  getProduct(id: String): Promise<Product> {
+  getProduct(id: string): Promise<Product> {
     return this.http.get(this.endpoints.store.productById(id))
       .toPromise()
       .then(response => response.json() as Product)

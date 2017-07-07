@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpModule } from "@angular/http";
-import { EndpointsService } from "app/modules/core/services/endoints.service";
+import { DataService, EndpointsService } from "app/modules/core/services";
 
 @NgModule({
   declarations: [
@@ -21,7 +21,9 @@ import { EndpointsService } from "app/modules/core/services/endoints.service";
     AngularMaterialModule,
     AppRoutingModule,
   ],
-  providers: [EndpointsService],
+  providers: [
+    EndpointsService,
+    DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
