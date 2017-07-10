@@ -3,20 +3,21 @@ const User = require('../model').user;
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const config = require('../config');
+const passport = require('passport');
 // Authenticate the user and get a JSON Web Token to include in the header of future requests.
-router.post('/authenticate', function (req, res) {
+router.post('/authenticate', function(req, res) {
     User.findByName(req.body.name)
         .then(user => {
             if (user) {
                 return user.comparePassword(req.body.password)
-                .then((isMatch) => {
-                    if (isMatch) {
-                        return user;                        
-                    } else {
-                        throw 'Authentication failed. Passwords did not match.';
-                    }
-                });
-                
+                    .then((isMatch) => {
+                        if (isMatch) {
+                            return user;
+                        } else {
+                            throw 'Authentication failed. Passwords did not match.';
+                        }
+                    });
+
             } else {
                 res.status(404);
                 throw 'Authentication failed. User not found.';
@@ -40,4 +41,20 @@ router.post('/authenticate', function (req, res) {
         });
 
 });
+
+router.get('/auth/google',
+    passport.authenticate('google', {
+        scope: [
+            'https://www.googleapis.com/auth/userinfo.profile',
+            'https://www.googleapis.com/auth/userinfo.email'
+        ]
+    })
+);
+
+router.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+        res.redirect('/');
+    });
+
 module.exports = router;

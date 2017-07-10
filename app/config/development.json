@@ -1,6 +1,11 @@
 {
   "dbURI": "mongodb://elvis:elvis@ds137090.mlab.com:37090/elvis-store",
   "host": "http://localhost:3000",
-  "sessionSecret": "secretKey"
-
+  "sessionSecret": "secretKey",
+  "google": {
+    "clientID": "916830606516-ne6letfmkphkm3h4k849n149dbsuabm0.apps.googleusercontent.com",
+    "clientSecret": "WS9Umx9Bo-0fzy3wVykTPduc",
+    "callbackURL": "//localhost:3000/api/auth/google/callback",
+    "profileFields": [ "id", "displayName", "photos", "name", "emails" ]
+  }
 }
