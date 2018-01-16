@@ -28,7 +28,7 @@ export class HeroComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['../detail', this.selectedHero.id], { relativeTo: this.activeRoute });
   }
-  add(name: String) {
+  add(name: string) {
     name = name.trim();
     if (!name) { return; }
     this.heroService.create(name)
