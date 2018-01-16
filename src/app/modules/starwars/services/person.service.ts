@@ -16,6 +16,7 @@ export class PersonService {
 
   handleError(error) {
     console.error(error);
+    return null;
   }
 
   getPeople(): Promise<Person[]> {

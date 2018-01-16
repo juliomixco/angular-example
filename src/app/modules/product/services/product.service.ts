@@ -16,6 +16,7 @@ export class ProductService {
 
   handleError(error) {
     console.error(error);
+    return null;
   }
 
   getProducts(): Promise<Product[]> {
