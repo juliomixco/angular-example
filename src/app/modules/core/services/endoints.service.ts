@@ -1,6 +1,5 @@
-import { Injectable } from "@angular/core";
-import { Product } from "app/modules/product/models";
-import { SwapiApiEndpoints, StoreApiEndpoints } from "app/modules/core/classes";
+import { Injectable } from '@angular/core';
+import { SwapiApiEndpoints, StoreApiEndpoints } from 'app/modules/core/classes';
 
 @Injectable()
 export class EndpointsService {

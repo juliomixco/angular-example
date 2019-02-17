@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable, BehaviorSubject, Subject } from 'rxjs';
+import { Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs';
 import { Person } from '../../models/person';
 import { PersonService } from 'app/modules/starwars/services/person.service';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'app/modules/core/services';
 
 @Component({

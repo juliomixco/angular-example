@@ -1,4 +1,4 @@
-import { of as observableOf, Observable, BehaviorSubject, Subject } from 'rxjs';
+import { of as observableOf, Observable, BehaviorSubject } from 'rxjs';
 
 import {
   catchError,
@@ -7,7 +7,7 @@ import {
   debounceTime,
 } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { Person } from '../../models/person';
 import { PersonService } from 'app/modules/starwars/services/person.service';
 import { ActivatedRoute, Router } from '@angular/router';

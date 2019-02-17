@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HttpModule } from "@angular/http";
-import { FormsModule } from "@angular/forms";
-import { StarwarsRoutingModule } from "./starwars-routing.module";
-import { PersonService } from "./services/person.service";
-import { PersonListComponent, PersonDetailComponent } from "app/modules/starwars/components";
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { StarwarsRoutingModule } from './starwars-routing.module';
+import { PersonService } from './services/person.service';
+import { PersonListComponent, PersonDetailComponent } from 'app/modules/starwars/components';
 
 
 

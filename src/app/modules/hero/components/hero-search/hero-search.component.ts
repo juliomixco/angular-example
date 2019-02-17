@@ -14,7 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 // Observable operators
 
 import { Hero } from 'app/modules/core/models/hero';
-import { HeroService, HeroSearchService } from '../../services';
+import { HeroSearchService } from '../../services';
 
 @Component({
   selector: 'app-hero-search',

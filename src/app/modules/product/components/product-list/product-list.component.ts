@@ -1,4 +1,4 @@
-import { of as observableOf, Observable, BehaviorSubject, Subject } from 'rxjs';
+import { of as observableOf, Observable, BehaviorSubject } from 'rxjs';
 
 import {
   catchError,
@@ -7,7 +7,7 @@ import {
   debounceTime,
 } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { Product } from 'app/modules/product/models';
 import { ProductService } from '../../services/product.service';
 

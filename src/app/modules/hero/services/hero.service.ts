@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HEROES } from './mock-heroes';
 import { Http, Headers } from '@angular/http';
 
 import { Hero } from 'app/modules/core/models/hero';

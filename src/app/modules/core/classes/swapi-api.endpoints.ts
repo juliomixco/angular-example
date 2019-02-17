@@ -1,5 +1,5 @@
 export class SwapiApiEndpoints {
-  baseUrl: string = "http://swapi.co/api";
+  baseUrl = 'http://swapi.co/api';
 
   getPeople(): string {
     return `${this.baseUrl}/people/`;

@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { HeroService } from './hero.service';
-import { metaData } from "app/modules/hero/hero.meta.spec";
+import { metaData } from 'app/modules/hero/hero.meta.spec';
 
 describe('HeroService', () => {
   beforeEach(() => {
