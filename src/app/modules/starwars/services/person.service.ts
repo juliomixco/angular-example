@@ -1,18 +1,14 @@
-import { Injectable } from "@angular/core";
+import { map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map';
-import { Person } from "../models/person";
-import { EndpointsService } from "app/modules/core/services";
+import { Observable } from 'rxjs';
+
+import { Person } from '../models/person';
+import { EndpointsService } from 'app/modules/core/services';
 
 @Injectable()
 export class PersonService {
-
-
-  constructor(private http: Http, private endpoints: EndpointsService) {
-
-  }
+  constructor(private http: Http, private endpoints: EndpointsService) {}
 
   handleError(error) {
     console.error(error);
@@ -20,7 +16,8 @@ export class PersonService {
   }
 
   getPeople(): Promise<Person[]> {
-    return this.http.get(this.endpoints.swapi.getPeople())
+    return this.http
+      .get(this.endpoints.swapi.getPeople())
       .toPromise()
       .then(response => response.json().results as Person[])
       .catch(this.handleError);
@@ -29,31 +26,30 @@ export class PersonService {
   getPersonId(person: Person) {
     let id = null;
     if (person && person.url) {
-      let url = person.url.split('/');
+      const url = person.url.split('/');
       // console.log(url);
       id = url[url.length - 2];
     }
     return id;
-
   }
 
   getPerson(id: string): Promise<Person> {
-    return this.http.get(this.endpoints.swapi.getPersonById(id))
+    return this.http
+      .get(this.endpoints.swapi.getPersonById(id))
       .toPromise()
       .then(response => response.json() as Person)
       .catch(this.handleError);
   }
 
   search(term: string): Observable<Person[]> {
-    var url = this.endpoints.swapi.getPeople();
+    let url = this.endpoints.swapi.getPeople();
     if (term && term.trim()) {
       url = this.endpoints.swapi.searchPeople(term);
-
     }
-    return this.http.get(url)
-      .map(response => {
+    return this.http.get(url).pipe(
+      map(response => {
         return response.json().results as Person[];
-      });
+      }),
+    );
   }
-
 }
