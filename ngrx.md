@@ -11,7 +11,7 @@ ng add @ngrx/entity
 4- Create Reducers
 5- Create Effects
 6- Create Selectors
-
+database hosted in https://mlab.com/
 references
 https://netbasal.com/implementing-a-meta-reducer-in-ngrx-store-4379d7e1020a
 https://medium.com/frontend-fun/angular-ngrx-a-clean-and-clear-introduction-4ed61c89c1fc
