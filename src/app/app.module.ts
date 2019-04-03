@@ -8,12 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { DataService, EndpointsService } from 'app/modules/core/services';
 import { LoginComponent } from 'app/modules/core/components/login.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from 'app/store/reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { appEffects } from './store/effects/app.effects';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent
-  ],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -21,10 +24,14 @@ import { LoginComponent } from 'app/modules/core/components/login.component';
     HttpModule,
     AngularMaterialModule,
     AppRoutingModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot(appEffects),
   ],
-  providers: [
-    EndpointsService,
-    DataService],
-  bootstrap: [AppComponent]
+  providers: [EndpointsService, DataService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

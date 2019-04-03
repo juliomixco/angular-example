@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { Product } from 'app/modules/product/models';
 import { EndpointsService } from 'app/modules/core/services/endoints.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ProductService {
   constructor(private http: Http, private endpoints: EndpointsService) {}
 

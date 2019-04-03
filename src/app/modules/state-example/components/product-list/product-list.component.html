@@ -1,0 +1,64 @@
+<div class="head text-center">
+    <!-- <img src="http://clipart-library.com/data_images/250409.jpg" width="200" alt="Elvis Store" />
+        <br /> -->
+    <h2>Product List</h2>
+    <br>
+</div>
+<div class="col-md-offset-3 col-md-6">
+    <div class="form-group form-inline">
+        <label for="search-box">Product filter</label>
+        <input
+            #searchBox
+            id="search-box"
+            class="form-control"
+            (keyup)="search(searchBox.value)"
+            placeholder="Type something! ">
+        <mat-button-toggle-group
+            name="fontStyle"
+            aria-label="Font Style"
+            #displaymode="matButtonToggleGroup"
+            value="table">
+            <mat-button-toggle value="table">Table</mat-button-toggle>
+            <mat-button-toggle value="list">List</mat-button-toggle>
+            <mat-button-toggle value="card">Card</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div
+        *ngIf="error|async"
+        style="color:red">
+        {{error | async | json}}
+    </div>
+    <app-switch-product-display-mode
+        [items]="products | async"
+        [mode]="displaymode.value">
+        <div *appListItem="let item">
+            Name: {{item.name}}
+            <br>
+            Cost:  {{item.cost | currency:"USD":true}}
+        </div>
+        <ng-container *appTableHeaderItem>
+            <th>Name</th>
+            <th>Price</th>
+        </ng-container>
+        <ng-container *appTableItem="let p">
+            <td>{{p.name}}</td>
+            <td>{{p.cost | currency:"USD":true}}</td>
+        </ng-container>
+    </app-switch-product-display-mode>
+</div>
+<!-- <div class="col-md-offset-3 col-md-6">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr class="info">
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products | async">
+                <td>{{p.name}}</td>
+                <td>{{p.cost | currency:"$"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

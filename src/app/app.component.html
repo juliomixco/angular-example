@@ -1,35 +1,56 @@
-<!--The whole content below can be removed with the new code.-->
+<!-- The whole content below can be removed with the new code. -->
 <mat-sidenav-container class="example-sidenav-fab-container">
-  <mat-sidenav #sidenav mode="push" opened="false" class="col-md-6 col-xs-8">
-    Jolly good!
-  </mat-sidenav>
-  <mat-toolbar color="primary" (click)="sidenav.toggle()">
-    <mat-icon>dehaze</mat-icon>
-    <span>Custom Toolbar</span>
-
-    <!--<mat-toolbar-row>
+    <mat-sidenav
+        #sidenav
+        mode="push"
+        opened="false"
+        class="col-md-6 col-xs-8">
+        Jolly good!
+    </mat-sidenav>
+    <mat-toolbar
+        color="primary"
+        (click)="sidenav.toggle()">
+        <mat-icon>dehaze</mat-icon>
+        <span>Custom Toolbar</span>
+        <!-- <mat-toolbar-row>
       <span>Second Line</span>
       <span class="example-spacer"></span>
       <mat-icon class="example-icon">verified_user</mat-icon>
     </mat-toolbar-row>
-
     <mat-toolbar-row>
       <span>Third Line</span>
       <span class="example-spacer"></span>
       <mat-icon class="example-icon">favorite</mat-icon>
       <mat-icon class="example-icon">delete</mat-icon>
-    </mat-toolbar-row>-->
-  </mat-toolbar>
-
-
-
-  <h1>{{title}}</h1>
-  <nav>
-    <a routerLink="/hero/dashboard" routerLinkActive="active">Dashboard</a>
-    <a routerLink="/hero/heroes" routerLinkActive="active">Heroes</a>
-    <a routerLink="/product/product-list" routerLinkActive="active">Products</a>
-    <a routerLink="/starwars" routerLinkActive="active">Starwars</a>
-  </nav>
-  <router-outlet></router-outlet>
-
+    </mat-toolbar-row> -->
+    </mat-toolbar>
+    <h1>{{title}}</h1>
+    <nav>
+        <a
+            routerLink="/hero/dashboard"
+            routerLinkActive="active">
+            Dashboard
+        </a>
+        <a
+            routerLink="/hero/heroes"
+            routerLinkActive="active">
+            Heroes
+        </a>
+        <a
+            routerLink="/product/product-list"
+            routerLinkActive="active">
+            Products
+        </a>
+        <a
+            routerLink="/state-example/product-list"
+            routerLinkActive="active">
+            State Example
+        </a>
+        <a
+            routerLink="/starwars"
+            routerLinkActive="active">
+            Starwars
+        </a>
+    </nav>
+    <router-outlet></router-outlet>
 </mat-sidenav-container>
