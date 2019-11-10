@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Headers } from '@angular/http';
 
 import { Hero } from 'app/modules/core/models/hero';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

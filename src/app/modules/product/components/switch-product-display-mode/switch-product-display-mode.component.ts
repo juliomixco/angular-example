@@ -13,15 +13,15 @@ export class SwitchProductDisplayModeComponent {
   @Input() mode: 'list' | 'card' | 'table' = 'table';
 
   // read structural directives as TemplateRefs
-  @ContentChild(CardItemDirective, { read: TemplateRef })
+  @ContentChild(CardItemDirective, { read: TemplateRef, static: true })
   public cardItemTemplate: TemplateRef<CardItemDirective>;
 
-  @ContentChild(ListItemDirective, { read: TemplateRef })
+  @ContentChild(ListItemDirective, { read: TemplateRef, static: true })
   public listItemTemplate: TemplateRef<ListItemDirective>;
 
-  @ContentChild(TableItemDirective, { read: TemplateRef })
+  @ContentChild(TableItemDirective, { read: TemplateRef, static: true })
   public tableItemTemplate: TemplateRef<TableItemDirective>;
 
-  @ContentChild(TableHeaderItemDirective, { read: TemplateRef })
+  @ContentChild(TableHeaderItemDirective, { read: TemplateRef, static: true })
   public tableHeaderItemTemplate: TemplateRef<TableHeaderItemDirective>;
 }
