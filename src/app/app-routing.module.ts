@@ -6,19 +6,29 @@ import { LoginComponent } from 'app/modules/core/components/login.component';
 const routes: Routes = [
   { path: '', redirectTo: '/hero/dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'hero', loadChildren: 'app/modules/hero/hero.module#HeroModule' },
+  {
+    path: 'hero',
+    loadChildren: () =>
+      import('app/modules/hero/hero.module').then(m => m.HeroModule),
+  },
   {
     path: 'product',
-    loadChildren: 'app/modules/product/product.module#ProductModule',
+    loadChildren: () =>
+      import('app/modules/product/product.module').then(m => m.ProductModule),
   },
   {
     path: 'state-example',
-    loadChildren:
-      'app/modules/state-example/state-example.module#StateExampleModule',
+    loadChildren: () =>
+      import('app/modules/state-example/state-example.module').then(
+        m => m.StateExampleModule,
+      ),
   },
   {
     path: 'starwars',
-    loadChildren: 'app/modules/starwars/starwars.module#StarwarsModule',
+    loadChildren: () =>
+      import('app/modules/starwars/starwars.module').then(
+        m => m.StarwarsModule,
+      ),
   },
   // { path: 'detail/:id', component: HeroDetailComponent },
   // { path: 'heroes',     component: HeroComponent }
