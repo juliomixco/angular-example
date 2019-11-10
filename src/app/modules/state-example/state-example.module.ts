@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ProductRoutingModule } from './state-example-routing.module';
 import { ProductListComponent } from './components';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +24,7 @@ const directives = [
   imports: [
     CommonModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ProductRoutingModule,
     AngularMaterialModule,
   ],

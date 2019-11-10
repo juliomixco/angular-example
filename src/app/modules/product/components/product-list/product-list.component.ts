@@ -7,9 +7,9 @@ import {
   debounceTime,
 } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 import { Product } from 'app/modules/product/models';
 import { ProductService } from '../../services/product.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-list',
@@ -21,7 +21,10 @@ export class ProductListComponent implements OnInit {
   products: Observable<Product[]> = observableOf<Product[]>([]);
   private searchfilter: BehaviorSubject<string>;
 
-  constructor(private http: Http, private productService: ProductService) {}
+  constructor(
+    private http: HttpClient,
+    private productService: ProductService,
+  ) {}
 
   ngOnInit() {
     this.searchfilter = new BehaviorSubject(''); // initial filter value

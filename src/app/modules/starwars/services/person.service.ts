@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Person } from '../models/person';
@@ -8,7 +8,7 @@ import { EndpointsService } from 'app/modules/core/services';
 
 @Injectable()
 export class PersonService {
-  constructor(private http: Http, private endpoints: EndpointsService) {}
+  constructor(private http: HttpClient, private endpoints: EndpointsService) {}
 
   handleError(error) {
     console.error(error);
@@ -17,9 +17,8 @@ export class PersonService {
 
   getPeople(): Promise<Person[]> {
     return this.http
-      .get(this.endpoints.swapi.getPeople())
+      .get<Person[]>(this.endpoints.swapi.getPeople())
       .toPromise()
-      .then(response => response.json().results as Person[])
       .catch(this.handleError);
   }
 
@@ -35,9 +34,8 @@ export class PersonService {
 
   getPerson(id: string): Promise<Person> {
     return this.http
-      .get(this.endpoints.swapi.getPersonById(id))
+      .get<Person>(this.endpoints.swapi.getPersonById(id))
       .toPromise()
-      .then(response => response.json() as Person)
       .catch(this.handleError);
   }
 
@@ -46,9 +44,9 @@ export class PersonService {
     if (term && term.trim()) {
       url = this.endpoints.swapi.searchPeople(term);
     }
-    return this.http.get(url).pipe(
+    return this.http.get<any>(url).pipe(
       map(response => {
-        return response.json().results as Person[];
+        return response.results as Person[];
       }),
     );
   }

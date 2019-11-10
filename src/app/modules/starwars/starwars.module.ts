@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { StarwarsRoutingModule } from './starwars-routing.module';
 import { PersonService } from './services/person.service';
@@ -20,7 +20,7 @@ const components = [
   imports: [
     CommonModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     StarwarsRoutingModule,
   ],
   // exports: [...components],

@@ -7,7 +7,7 @@ import {
   debounceTime,
 } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Person } from '../../models/person';
 import { PersonService } from 'app/modules/starwars/services/person.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,7 +24,7 @@ export class PersonListComponent implements OnInit {
   private searchfilter: BehaviorSubject<string>;
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private personService: PersonService,
     private router: Router,
     private activeRoute: ActivatedRoute,

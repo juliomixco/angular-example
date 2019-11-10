@@ -8,7 +8,7 @@ import {
   map,
 } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { IProduct } from 'app/modules/product/models';
 import { Store, select } from '@ngrx/store';
 import { IAppState } from 'app/store/state/app.state';
@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit {
   );
   private searchfilter: BehaviorSubject<string>;
 
-  constructor(private http: Http, private _store: Store<IAppState>) {}
+  constructor(private http: HttpClient, private _store: Store<IAppState>) {}
 
   ngOnInit() {
     this.searchfilter = new BehaviorSubject(''); // initial filter value

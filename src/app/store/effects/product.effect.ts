@@ -22,7 +22,7 @@ export class ProductEffects {
   @Effect()
   getProducts$ = this._actions.pipe(
     ofType<GetProductsAction>(EProductActions.GetProducts),
-    switchMap(() => from(this._productService.getProducts())),
+    switchMap(() => this._productService.getProducts()),
     switchMap(products => of(new GetProductsSuccessAction(products))),
     catchError(error => of(new GetProductsFailureAction(error))),
   );

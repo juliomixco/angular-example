@@ -1,35 +1,37 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { HeroDetailComponent, HeroComponent, DashboardComponent, HeroSearchComponent } from './components';
+import {
+  HeroDetailComponent,
+  HeroComponent,
+  DashboardComponent,
+  HeroSearchComponent,
+} from './components';
 import { InMemoryDataService } from 'app/modules/core/services/in-memory-data.service';
 import { HeroService } from 'app/modules/hero/services';
 import { HeroRoutingModule } from 'app/modules/hero/hero-routing.module';
-
 
 const components = [
   HeroDetailComponent,
   HeroComponent,
   DashboardComponent,
-  HeroSearchComponent
+  HeroSearchComponent,
 ];
 
 @NgModule({
-  declarations: [
-    ...components
-  ],
+  declarations: [...components],
   imports: [
     FormsModule,
     CommonModule,
-    HttpModule,
+    HttpClientModule,
     HeroRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 }),
   ],
   // exports: [...components],
-  providers: [HeroService]
+  providers: [HeroService],
 })
-export class HeroModule { }
+export class HeroModule {}

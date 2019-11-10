@@ -4,10 +4,10 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { AngularMaterialModule } from 'app/modules/angular-material/angularMaterial.module';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,7 +19,7 @@ describe('AppComponent', () => {
         FormsModule,
         BrowserModule,
         BrowserAnimationsModule,
-        HttpModule,
+        HttpClientModule,
         AngularMaterialModule,
         RouterModule,
         AppRoutingModule,

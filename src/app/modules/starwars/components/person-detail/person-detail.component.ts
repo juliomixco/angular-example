@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Person } from '../../models/person';
 import { PersonService } from 'app/modules/starwars/services/person.service';
@@ -17,7 +17,7 @@ export class PersonDetailComponent implements OnInit {
   private searchfilter: BehaviorSubject<string>;
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private router: Router,
     private data: DataService,
     private activeRoute: ActivatedRoute,

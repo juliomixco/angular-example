@@ -1,44 +1,71 @@
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 
-import { Product } from 'app/modules/product/models';
+import { Product, IProductDto } from 'app/modules/product/models';
 import { EndpointsService } from 'app/modules/core/services/endoints.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  constructor(private http: Http, private endpoints: EndpointsService) {}
+  constructor(private http: HttpClient, private endpoints: EndpointsService) {}
 
-  handleError(error) {
+  handleError<T>(error): T {
     console.error(error);
     return null;
   }
 
-  getProducts(): Promise<Product[]> {
-    return this.http
-      .get(this.endpoints.store.products())
-      .toPromise()
-      .then(response => response.json() as Product[])
-      .catch(this.handleError);
+  getProducts(): Observable<Product[]> {
+    return this.http.get<IProductDto[]>(this.endpoints.store.products()).pipe(
+      map((response): Product[] => {
+        console.log(response);
+        return response.map<Product>(x => ({
+          ...x,
+          id: x._id,
+        }));
+      }),
+      catchError(this.handleError),
+    );
+    // .then(response => response.json() as Product[])
+    // .catch(this.handleError);
   }
 
-  getProduct(id: string): Promise<Product> {
+  getProduct(id: string): Observable<Product> {
     return this.http
-      .get(this.endpoints.store.productById(id))
-      .toPromise()
-      .then(response => response.json() as Product)
-      .catch(this.handleError);
+      .get<IProductDto>(this.endpoints.store.productById(id))
+      .pipe(
+        map(
+          (product): Product => {
+            console.log(product);
+            return {
+              ...product,
+              id: product._id,
+            };
+          },
+        ),
+        catchError(this.handleError),
+      );
   }
 
   search(term: string): Observable<Product[]> {
     let url = this.endpoints.store.products();
-    if (term.trim()) {
-      url = `${this.endpoints.store.products()}?name=${term}`;
-    }
+    const searchTerm = term.trim();
+    const validTerm = searchTerm !== undefined || searchTerm !== '';
     console.log(url);
     return this.http
-      .get(url)
-      .pipe(map(response => response.json() as Product[]));
+      .get<IProductDto[]>(url, {
+        params: {
+          ...(validTerm && { name: searchTerm }),
+        },
+      })
+      .pipe(
+        map((response): Product[] => {
+          return response.map<Product>(x => ({
+            ...x,
+            id: x._id,
+          }));
+        }),
+        catchError(this.handleError),
+      );
   }
 }

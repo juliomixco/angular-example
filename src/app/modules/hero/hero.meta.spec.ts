@@ -1,5 +1,5 @@
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { TestModuleMetadata } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
 
@@ -33,7 +33,7 @@ export const metaData: TestModuleMetadata = {
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     AngularMaterialModule,
     RouterModule,
     AppRoutingModule,

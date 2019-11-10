@@ -5,7 +5,7 @@ import { AngularMaterialModule } from './modules/angular-material/angularMateria
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { DataService, EndpointsService } from 'app/modules/core/services';
 import { LoginComponent } from 'app/modules/core/components/login.component';
 import { StoreModule } from '@ngrx/store';
@@ -21,7 +21,7 @@ import { appEffects } from './store/effects/app.effects';
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     AngularMaterialModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
