@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:3000',
+  apiURL: 'https://angular-example-jmixco.herokuapp.com',
 };
