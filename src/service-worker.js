@@ -88,6 +88,9 @@ self.addEventListener('fetch', function(fetchEvent) {
   // );
   const acceptHeader = fetchEvent.request.headers.get('accept');
   const isFromApi = fetchEvent.request.url.indexOf('/api/') >= 0;
+  if (fetchEvent.request.cache === 'only-if-cached' && fetchEvent.request.mode !== 'same-origin') {
+    return;
+  }
   fetchEvent.respondWith(
     caches
       .match(fetchEvent.request, { cacheName: ALL_CACHES.prefetch })
