@@ -1,6 +1,6 @@
 import { map, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { Product, IProductDto } from 'app/modules/product/models';
 import { EndpointsService } from 'app/modules/core/services/endoints.service';
@@ -10,9 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class ProductService {
   constructor(private http: HttpClient, private endpoints: EndpointsService) {}
 
-  handleError<T>(error): T {
+  handleError<T>(error) {
     console.error(error);
-    return null;
+    return of(null);
   }
 
   getProducts(): Observable<Product[]> {
