@@ -86,15 +86,21 @@ self.addEventListener('fetch', function(fetchEvent) {
   //     return useFallback();
   //   }),
   // );
-  const acceptHeader = fetchEvent.request.headers.get('accept');
   const isFromApi = fetchEvent.request.url.indexOf('/api/') >= 0;
-  if (fetchEvent.request.cache === 'only-if-cached' && fetchEvent.request.mode !== 'same-origin') {
+  if (
+    fetchEvent.request.cache === 'only-if-cached' &&
+    fetchEvent.request.mode !== 'same-origin'
+  ) {
     return;
   }
+  // first check if resource has been prefetched
   fetchEvent.respondWith(
     caches
       .match(fetchEvent.request, { cacheName: ALL_CACHES.prefetch })
       .then(response => {
+        // return precached
+        if (response) return response;
+        // search api cache
         if (isFromApi) {
           return fetchApiDataWithFallback(fetchEvent);
         }
@@ -135,7 +141,6 @@ function precacheStaticAssets() {
       return prefetchCache.addAll(PRECACHE_RESOURCES);
     })
     .catch(err => {
-      debugger;
       console.log(err);
     });
 }

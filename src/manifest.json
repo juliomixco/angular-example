@@ -1,7 +1,7 @@
 {
-  "name": "Progressive Web Cat",
-  "short_name": "PWCat",
-  "description": "A funny cat image generator",
+  "name": "Angular Progressive Store",
+  "short_name": "PWstore",
+  "description": "Aplicacion de ejemplo para chrome dev summit",
   "icons": [
     {
       "src": "/assets/icon-72x72.png",
